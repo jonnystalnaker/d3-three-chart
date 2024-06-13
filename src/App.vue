@@ -14,8 +14,11 @@
 		</p>
 		<p>
 			Repo can be found at
-			<a href="https://github.com/jonny-w/d3-three-chart">
-				https://github.com/jonny-w/d3-three-chart
+			<a
+				target="_blank"
+				href="https://github.com/jonnystalnaker/d3-three-chart"
+			>
+				https://github.com/jonnystalnaker/d3-three-chart
 			</a>
 		</p>
 		<CharacterSearch
