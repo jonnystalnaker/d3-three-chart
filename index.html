@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=1100, initial-scale=1.0" />
-  <title>Vite + Vue + TS</title>
+  <title>StarWars Height Check</title>
   <style>
     html,
     body {
@@ -17,7 +17,7 @@
       padding: 5em 0;
     }
 
-    .stars {
+    .starfield {
       position: fixed;
       top: 0;
       left: 0;
@@ -31,45 +31,62 @@
 
     .star {
       position: absolute;
-      width: 2px;
-      height: 2px;
+      width: 1px;
+      height: 1px;
       background: white;
+      border-radius: 50%;
       opacity: 0;
-      animation: sparkle 7s linear infinite;
-    }
-
-    @keyframes sparkle {
-      0% {
-        opacity: 0;
-      }
-
-      50% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-      }
     }
   </style>
 </head>
 
 <body>
   <div id="app"></div>
-  <div class="stars"></div>
+  <div class="starfield"></div>
   <script type="module" src="/src/main.ts"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const starsContainer = document.querySelector('.stars');
-      for (let i = 0; i < 1000; i++) {
+      const starfield = document.querySelector('.starfield');
+      const stars = [];
+      const numStars = 1000;
+      const speed = 1;
+
+      function createStar() {
         const star = document.createElement('div');
         star.classList.add('star');
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.animationDelay = `${Math.random() * 10}s`;
-        star.style.animationDuration = `${2 + Math.random() * 3}s`;
-        starsContainer.appendChild(star);
+        star.x = Math.random() * window.innerWidth;
+        star.y = Math.random() * window.innerHeight;
+        star.z = Math.random() * window.innerWidth;
+        star.opacity = Math.random();
+        starfield.appendChild(star);
+        stars.push(star);
       }
+
+      for (let i = 0; i < numStars; i++) {
+        createStar();
+      }
+
+      function animateStars() {
+        stars.forEach(star => {
+          star.z -= speed;
+          if (star.z <= 0) {
+            star.x = Math.random() * window.innerWidth;
+            star.y = Math.random() * window.innerHeight;
+            star.z = window.innerWidth;
+            star.opacity = Math.random();
+          }
+
+          const scale = 1 / (star.z / window.innerWidth);
+          const x = (star.x - window.innerWidth / 2) * scale + window.innerWidth / 2;
+          const y = (star.y - window.innerHeight / 2) * scale + window.innerHeight / 2;
+
+          star.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+          star.style.opacity = star.opacity;
+        });
+        requestAnimationFrame(animateStars);
+      }
+
+      animateStars();
     });
   </script>
 </body>
