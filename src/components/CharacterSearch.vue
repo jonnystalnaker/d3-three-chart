@@ -191,5 +191,6 @@
 
 	.suggestions li:hover {
 		background-color: black;
+		color: white;
 	}
 </style>
