@@ -12,6 +12,12 @@
 			bar chart and a 2D bar chart, respectively. It calls the
 			https://swapi.dev/ api to get Starwars Characters
 		</p>
+		<p>
+			Repo can be found at
+			<a href="https://github.com/jonny-w/d3-three-chart">
+				https://github.com/jonny-w/d3-three-chart
+			</a>
+		</p>
 		<CharacterSearch
 			@character-selected="updateCharacters"
 			@data-loaded="dataLoaded"
