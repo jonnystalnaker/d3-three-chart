@@ -107,6 +107,9 @@
 		align-items: center;
 		z-index: 1000;
 		width: 820px;
+		margin-top: 5rem;
+		padding: 5rem 0 10rem;
+		height: 100%;
 	}
 	h1 {
 		margin-bottom: 0;
