@@ -8,9 +8,9 @@
 		<h2>Who's the tallest?</h2>
 		<p>
 			This is a simple app that lets you check the height of characters from the
-			Star Wars universe. It uses D3.js, Three.js, and Chart.js to create a 3D
-			bar chart and a 2D bar chart, respectively. It calls the
-			https://swapi.dev/ api to get Starwars Characters
+			Star Wars universe. It uses D3.js, Three.js, and Chart.js to create charts
+			using each library. It calls the https://swapi.dev/ api to get Starwars
+			Characters info.
 		</p>
 		<p>
 			Repo can be found at
